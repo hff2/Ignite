@@ -7,11 +7,7 @@ import { useSelector,useDispatch } from "react-redux";
 import { loadDetail } from "../actions/datailAction";
 
 const GameDetail = () => {
-  //FETCH GAMES
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(loadDetail());
-  },[dispatch]);
+
   //Data
   const { screen, game } = useSelector((state) => state.detail);
 

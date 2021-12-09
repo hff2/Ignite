@@ -41,10 +41,6 @@ const GlobalStyles = createGlobalStyle`
         text-decoration: none;
         color: #333;
     }
-    .stats{
-        display: flex;
-        justify-content: space-between;
-    }
 `;
 
 export default GlobalStyles;
