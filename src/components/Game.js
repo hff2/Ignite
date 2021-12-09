@@ -7,13 +7,14 @@ import { useDispatch } from "react-redux";
 import { loadDetail } from "../actions/datailAction";
 //Router
 import { Link } from "react-router-dom";
+import { smallImage } from "../util";
 
 const Game = ({ name, released, image, id }) => {
     // Fix Scrolling
     const url = window.location.pathname;
-    if(url === "/"){
+    if (url === "/") {
         document.body.style.overflow = "auto";
-    }else{
+    } else {
         document.body.style.overflow = "hidden";
     }
     // Load Details
@@ -27,7 +28,7 @@ const Game = ({ name, released, image, id }) => {
             <Link to={`/game/${id}`}>
                 <h3>{name}</h3>
                 <p>{released}</p>
-                <img src={image} alt={name} />
+                <img src={smallImage(image, 640)} alt={name} />
             </Link>
         </StyledGame>
     );
