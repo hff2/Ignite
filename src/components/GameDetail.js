@@ -4,9 +4,17 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 //Redux
 import { useSelector,useDispatch } from "react-redux";
-import { loadDetail } from "../actions/datailAction";
+import { useNavigate } from 'react-router-dom';
 
 const GameDetail = () => {
+  const navigate = useNavigate();
+  //Exit Detail
+  const exitDetailHandler = (e) => {
+    const element = e.target;
+    if(element.classList.contains('shadow')){
+      navigate('/')
+    }
+  }
 
   //Data
   const { screen, game,isLoading } = useSelector((state) => state.detail);
@@ -14,7 +22,7 @@ const GameDetail = () => {
   return (
     <>
     {!isLoading && (
-    <CardShadow>
+    <CardShadow className="shadow" onClick={exitDetailHandler}>
       <Detail>
         <div className="stats">
           <div className="rating">
