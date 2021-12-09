@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 //Styling and Animation
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -9,9 +9,11 @@ import { loadDetail } from "../actions/datailAction";
 const GameDetail = () => {
 
   //Data
-  const { screen, game } = useSelector((state) => state.detail);
+  const { screen, game,isLoading } = useSelector((state) => state.detail);
 
   return (
+    <>
+    {!isLoading && (
     <CardShadow>
       <Detail>
         <div className="stats">
@@ -41,6 +43,8 @@ const GameDetail = () => {
         </div>
       </Detail>
     </CardShadow>
+    )}
+    </>
   );
 };
 
