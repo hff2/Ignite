@@ -6,6 +6,7 @@ import logo from "../img/logo.svg";
 //Redux and Routes
 import { fetchSearch } from "../actions/gamesAction";
 import { useDispatch } from "react-redux";
+import { fadeIn } from "../animation";
 
 const Nav = () => {
     const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const Nav = () => {
         dispatch({ type: "CLEAR_SEARCHED" });
     };
     return (
-        <StyledNav>
+        <StyledNav variants={fadeIn} initial="hidden" animate="show">
             <Logo onClick={clearSearched}>
                 <img src={logo} alt="logo" />
                 <h1>Ignite</h1>
@@ -48,7 +49,7 @@ const StyledNav = styled(motion.nav)`
         border: none;
         margin-top: 1rem;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-        border-radius:20px 0 0 20px;
+        border-radius: 15px 0 0 15px;
     }
     input:focus{
         outline-width:0;
@@ -61,7 +62,7 @@ const StyledNav = styled(motion.nav)`
         background: #ff7676;
         color: white;
         box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
-        border-radius:0 20px 20px 0;
+        border-radius: 0 15px 15px 0;
     }
 `;
 
